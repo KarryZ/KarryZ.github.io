@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
+    <title>Kate Zasulevich - Frontend Developer</title>
+     <link rel="shortcut icon" href="image/favicon.png" type="image/png">
     <!-- Latest compiled and minified CSS -->
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
@@ -58,7 +59,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="skills__item"><img src="image/skillsZoom45%.png" alt="" class="skillZoom"> <img src="image/skillsBase.png" alt="" class="skillBase">
+                            <div class="skills__item"><img src="image/skillsZoom45.png" alt="" class="skillZoom"> <img src="image/skillsBase.png" alt="" class="skillBase">
                                 <div class="skillText">CSS</div>
                             </div>
                         </div>
@@ -68,7 +69,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="skills__item"><img src="image/skillsZoom45%.png" alt="" class="skillZoom"> <img src="image/skillsBase.png" alt="" class="skillBase">
+                            <div class="skills__item"><img src="image/skillsZoom45.png" alt="" class="skillZoom"> <img src="image/skillsBase.png" alt="" class="skillBase">
                                 <div class="skillText">Bootstrap</div>
                             </div>
                         </div>
@@ -83,25 +84,25 @@
                         <div id="works" class="title">Works</div>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <a href="test/test.html" class="works-item"><img src="image/0.jpg" alt="">
+                        <a href="test/test.html" target="_blank" class="works-item"><img src="image/0.jpg" alt="">
+                            <div class="overlay-text">
+                                <h2>Landing page</h2></div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <a href="search palindrom/palindrom.html" target="_blank" class="works-item"><img src="image/1.jpg" alt="">
+                            <div class="overlay-text">
+                                <h2>Search palindromes in the user text.</h2></div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <a href="#" target="_blank" class="works-item"><img src="image/2.jpg" alt="">
                             <div class="overlay-text">
                                 <h2>About work</h2></div>
                         </a>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <a href="#" class="works-item"><img src="image/1.jpg" alt="">
-                            <div class="overlay-text">
-                                <h2>About work</h2></div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <a href="#" class="works-item"><img src="image/2.jpg" alt="">
-                            <div class="overlay-text">
-                                <h2>About work</h2></div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <a href="#" class="works-item"><img src="image/3.jpg" alt="">
+                        <a href="#" target="_blank" class="works-item"><img src="image/3.jpg" alt="">
                             <div class="overlay-text">
                                 <h2>About work</h2></div>
                         </a>
@@ -115,12 +116,13 @@
                     <div class="row">
                         <div id="contacts" class="title title-contact">Send me your message</div>
                     </div>
+                    
                     <form method="POST" id="feedback-form">
-                        <input type="text" name="name" placeholder="Name" x-autocompletetype="name" class="feedback-input">
+                        <input type="text" name="name" required placeholder="Name" x-autocompletetype="name" class="feedback-input">
                         <br/>
-                        <input type="email" name="contact" placeholder="Email" x-autocompletetype="email" class="feedback-input">
+                        <input type="email" name="contact" required placeholder="Email" x-autocompletetype="email" class="feedback-input">
                         <br/>
-                        <textarea name="message" placeholder="Message" class="feedback-input"></textarea>
+                        <textarea name="message" required  placeholder="Message" class="feedback-input"></textarea>
                         <br/>
                         <input type="submit" value="submit"> </form>
                     <div class="col-md-8 col-md-offset-2 social-icons">
@@ -138,25 +140,24 @@
             </div>
         </div>
         <script>
-            document.getElementById('feedback-form').addEventListener('submit', function (evt) {
-                var http = new XMLHttpRequest()
-                    , f = this;
-                evt.preventDefault();
-                http.open("POST", "contacts.php", true);
-                http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                http.send("name=" + f.name.value + "&contact=" + f.contact.value + "&message=" + f.message.value);
-                http.onreadystatechange = function () {
-                    if (http.readyState == 4 && http.status == 200) {
-                        alert(http.responseText + 'Message send!');
-                        f.message.removeAttribute('value'); // очистить поле сообщения (две строки)
-                        f.message.value = '';
-                    }
-                }
-                http.onerror = function () {
-                    alert('Please, fill the whole form!');
-                }
-            }, false);
-        </script>
+document.getElementById('feedback-form').addEventListener('submit', function(evt){
+  var http = new XMLHttpRequest(), f = this;
+  evt.preventDefault();
+  http.open("POST", "send.php", true);
+  http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  http.send("name=" + f.name.value + "&contact=" + f.contact.value + "&message=" + f.message.value);
+  http.onreadystatechange = function() {
+    if (http.readyState == 4 && http.status == 200) {
+      alert('Ваше сообщение получено.');    
+      f.message.removeAttribute('value'); // очистить поле сообщения (две строки)
+      f.message.value='';
+    }
+  }
+  http.onerror = function() {
+    alert('Извините, данные не были переданы');
+  }
+}, false);
+</script>
         <script src="js/jquery-3.1.1.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
