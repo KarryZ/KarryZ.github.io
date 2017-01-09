@@ -291,6 +291,42 @@ img.skillBase {
     transform: translate3d(0, 0, 0);
 }
 
+.works-item__center-link{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.works-item .works-item__link{
+    text-decoration: none;
+   
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+}
+
+.works-item:hover .works-item__link{
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.link-info{
+    display: inline-block;
+    width: 85px;
+    position: relative;
+    margin: 1em;
+    padding: 0.5em;
+    font-size: 20px;
+    background-color: rgba(118, 83, 122, 0.5);
+    color: #FFF;
+    border: 1px #FFF solid;
+    border-radius: 5px;
+}
+
 .section-4 {
     height: auto;
     padding-bottom: 5%;

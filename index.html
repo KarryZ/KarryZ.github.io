@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kate Zasulevich - Frontend Developer</title>
-     <link rel="shortcut icon" href="image/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="image/favicon.png" type="image/png">
     <!-- Latest compiled and minified CSS -->
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 col-sm-12 about-text">Hi, I'm Kate Zasulevich . I'm a Front-end Developer from Minsk, Belarus.
+                    <div class="col-md-4 col-sm-12 about-text">Hi, I'm Kate Zasulevich. I'm a Front-end Developer from Minsk, Belarus.
                         <br>
                         <br> My job is my biggest passion (this is really cool, don't you think?). I love develop web sites because I think that this is a beatiful way to express creativity and communicate with people all over the world.
                         <br>
@@ -84,28 +84,64 @@
                         <div id="works" class="title">Works</div>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <a href="test/test.html" target="_blank" class="works-item"><img src="image/0.jpg" alt="">
+                        <div class="works-item"> <img src="image/0.jpg" alt="">
                             <div class="overlay-text">
-                                <h2>Landing page</h2></div>
-                        </a>
+                                <h2>Landing page</h2>
+                                <div class="works-item__center-link">
+                                    <a href="test/test.html" class="works-item__link" target="_blank">
+                                        <div class="link-info">Link</div>
+                                    </a>
+                                    <a href="https://github.com/KarryZ/test-engineering-company-site" class="works-item__link" target="_blank">
+                                        <div class="link-info">Git</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <a href="search palindrom/palindrom.html" target="_blank" class="works-item"><img src="image/1.jpg" alt="">
+                       <div class="works-item"> <img src="image/1.jpg" alt="">
                             <div class="overlay-text">
-                                <h2>Search palindromes in the user text.</h2></div>
-                        </a>
+                                <h2>Search palindromes in the user text.</h2>
+                                <div class="works-item__center-link">
+                                    <a href="search palindrom/palindrom.html" class="works-item__link" target="_blank">
+                                        <div class="link-info">Link</div>
+                                    </a>
+                                    <a href="https://github.com/KarryZ/search-palindrom" class="works-item__link" target="_blank">
+                                        <div class="link-info">Git</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <a href="#" target="_blank" class="works-item"><img src="image/2.jpg" alt="">
+                        <div class="works-item"> <img src="image/2.jpg" alt="">
                             <div class="overlay-text">
-                                <h2>About work</h2></div>
-                        </a>
+                                <h2>About work</h2>
+                                <div class="works-item__center-link">
+                                    <a href="search palindrom/palindrom.html" class="works-item__link" target="_blank">
+                                        <div class="link-info">Link</div>
+                                    </a>
+                                    <a href="https://github.com/KarryZ/search-palindrom" class="works-item__link" target="_blank">
+                                        <div class="link-info">Git</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <a href="#" target="_blank" class="works-item"><img src="image/3.jpg" alt="">
+                        <div class="works-item"> <img src="image/3.jpg" alt="">
                             <div class="overlay-text">
-                                <h2>About work</h2></div>
-                        </a>
+                                <h2>About work</h2>
+                                <div class="works-item__center-link">
+                                    <a href="search palindrom/palindrom.html" class="works-item__link" target="_blank">
+                                        <div class="link-info">Link</div>
+                                    </a>
+                                    <a href="https://github.com/KarryZ/search-palindrom" class="works-item__link" target="_blank">
+                                        <div class="link-info">Git</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,13 +152,12 @@
                     <div class="row">
                         <div id="contacts" class="title title-contact">Send me your message</div>
                     </div>
-                    
                     <form method="POST" id="feedback-form">
                         <input type="text" name="name" required placeholder="Name" x-autocompletetype="name" class="feedback-input">
                         <br/>
                         <input type="email" name="contact" required placeholder="Email" x-autocompletetype="email" class="feedback-input">
                         <br/>
-                        <textarea name="message" required  placeholder="Message" class="feedback-input"></textarea>
+                        <textarea name="message" required placeholder="Message" class="feedback-input"></textarea>
                         <br/>
                         <input type="submit" value="submit"> </form>
                     <div class="col-md-8 col-md-offset-2 social-icons">
@@ -140,24 +175,25 @@
             </div>
         </div>
         <script>
-document.getElementById('feedback-form').addEventListener('submit', function(evt){
-  var http = new XMLHttpRequest(), f = this;
-  evt.preventDefault();
-  http.open("POST", "send.php", true);
-  http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  http.send("name=" + f.name.value + "&contact=" + f.contact.value + "&message=" + f.message.value);
-  http.onreadystatechange = function() {
-    if (http.readyState == 4 && http.status == 200) {
-      alert('Ваше сообщение получено.');    
-      f.message.removeAttribute('value'); // очистить поле сообщения (две строки)
-      f.message.value='';
-    }
-  }
-  http.onerror = function() {
-    alert('Извините, данные не были переданы');
-  }
-}, false);
-</script>
+            document.getElementById('feedback-form').addEventListener('submit', function (evt) {
+                var http = new XMLHttpRequest()
+                    , f = this;
+                evt.preventDefault();
+                http.open("POST", "send.php", true);
+                http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                http.send("name=" + f.name.value + "&contact=" + f.contact.value + "&message=" + f.message.value);
+                http.onreadystatechange = function () {
+                    if (http.readyState == 4 && http.status == 200) {
+                        alert('Ваше сообщение получено.');
+                        f.message.removeAttribute('value'); // очистить поле сообщения (две строки)
+                        f.message.value = '';
+                    }
+                }
+                http.onerror = function () {
+                    alert('Извините, данные не были переданы');
+                }
+            }, false);
+        </script>
         <script src="js/jquery-3.1.1.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
