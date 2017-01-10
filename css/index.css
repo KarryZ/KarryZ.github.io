@@ -436,8 +436,13 @@ textarea {
         margin: 0 auto;
         padding-bottom: 20%;
     }
-    .works-item .overlay-text {
-        display: none;
+    .works-item .overlay-text{
+        opacity: 1;
+        border: none;
+    }
+    .works-item h2{
+    font-size: 14px; 
+        padding: 0;
     }
 }
 
@@ -458,9 +463,15 @@ textarea {
     .works-item img {
         width: 100%;
     }
-    .works-item .overlay-text {
-        display: none;
+    .works-item .overlay-text{
+        opacity: 1;
+        border: none;
     }
+    .works-item h2{
+    font-size: 14px; 
+        padding: 0;
+    }
+    
     .skills__item {
         margin: 10% 21%;
     }
